@@ -10,19 +10,22 @@ end
 require 'rake'
 
 require 'jeweler'
+require './lib/rack/pygmoku/version.rb'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "rack-pygmoku"
   gem.homepage = "http://github.com/krohrbaugh/rack-pygmoku"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Rack middleware for Pygments-based syntax highlighting"
+  gem.description = %Q{Rack middleware for Pygments use in environments you cannot install Pygments directly (e.g., Heroku).}
   gem.email = "kevin@rohrbaugh.us"
   gem.authors = ["Kevin Rohrbaugh"]
+  gem.version = Rack::Pygmoku::Version::STRING
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+  gem.add_runtime_dependency 'nokogiri', '~> 1.4'
+  gem.add_runtime_dependency 'pygments.rb', '~> 0'
+  gem.add_development_dependency 'rspec', '~> 2.5.0'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
