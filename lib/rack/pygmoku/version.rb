@@ -1,10 +1,12 @@
 module Rack
   class Pygmoku
     module Version
-      STRING = '0.1.0'
       MAJOR = 0
       MINOR = 1
       FIX = 0
+      PRE = nil
+
+      STRING = [MAJOR, MINOR, FIX, PRE].compact.join('.')
     end
   end
 end
