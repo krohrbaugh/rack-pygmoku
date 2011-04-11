@@ -26,6 +26,8 @@ Jeweler::Tasks.new do |gem|
   gem.add_runtime_dependency 'nokogiri', '~> 1.4'
   gem.add_runtime_dependency 'pygments.rb', '~> 0'
   gem.add_development_dependency 'rspec', '~> 2.5.0'
+  # Exclude files that are for development purposes
+  gem.files.exclude 'watchr.rb'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
