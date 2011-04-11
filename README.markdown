@@ -31,7 +31,7 @@ This is mainly a _toy project_ that I put together for my Nesta-powered
 blog, and is likely to be maintained as such unless others find it
 useful.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2011 Kevin Rohrbaugh.
 
