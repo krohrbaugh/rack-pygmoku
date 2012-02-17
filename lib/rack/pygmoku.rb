@@ -33,7 +33,7 @@ module Rack
       def highlight(content)
         require 'pygments'
 
-        element = 'pre>code'
+        element = @opts[:element]
 
         document = Nokogiri::HTML(content, nil, 'utf-8')
         nodes = document.css(element)
@@ -51,13 +51,9 @@ module Rack
       end
 
       def get_lexer(node)
-        attributes = %w(data-lexer data-lang)
+        attribute = @opts[:lexer_attr]
         lexer = 'html'
-
-        attributes.each do |attribute|
-          lexer = node[attribute] if node.has_attribute?(attribute)
-        end
-
+        lexer = node[attribute] if node.has_attribute?(attribute)
         lexer
       end
 
