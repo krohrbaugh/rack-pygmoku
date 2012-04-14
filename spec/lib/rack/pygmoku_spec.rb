@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 describe Rack::Pygmoku do
-  let(:pygmoku) { Rack::Pygmoku.new(app, opts) }
+  let(:pygmoku) { Rack::Pygmoku.new(app) }
   let(:app) do
     rack_app = double('app').as_null_object
     rack_app.stub(:call).and_return([status, headers, response])
     rack_app
   end
-  let(:opts) { Hash.new }
   let(:status) { 500 }
   let(:headers) { { 'Content-Length' => 0, 'Content-Type' => content_type } }
   let(:content_type) { 'text/plain' }

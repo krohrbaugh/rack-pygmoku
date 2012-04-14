@@ -10,7 +10,7 @@ In other words, it's ideal for use on Heroku.
 
 First, of course, install the gem.
 
-Currently, `rack-pygmoku` only support Markdown-style code blocks, like
+Currently, `rack-pygmoku` only supports Markdown-style code blocks, like
 so:
 
     <pre data-lang='ruby'>

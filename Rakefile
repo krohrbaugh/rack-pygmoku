@@ -25,6 +25,7 @@ Jeweler::Tasks.new do |gem|
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   gem.add_runtime_dependency 'nokogiri', '~> 1.4'
   gem.add_runtime_dependency 'pygments.rb', '~> 0'
+  gem.add_runtime_dependency 'rack', '~> 1.2'
   gem.add_development_dependency 'rspec', '~> 2.5.0'
   # Exclude files that are for development purposes
   gem.files.exclude 'watchr.rb'

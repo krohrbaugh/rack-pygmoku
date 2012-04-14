@@ -5,9 +5,8 @@ module Rack
   class Pygmoku
     include Rack::Utils
 
-    def initialize(app, opts={})
+    def initialize(app)
       @app = app
-      @opts = default_opts.merge(opts)
     end
 
     def call(env)
@@ -27,7 +26,7 @@ module Rack
       def highlight?(status, headers)
         status == 200 &&
         !headers['Transfer-Encoding'] &&
-         headers['Content-Type'] =~ /html/
+        headers['Content-Type'] =~ /html/
       end
 
       def highlight(content)
@@ -40,9 +39,9 @@ module Rack
         nodes.each do |node|
           parent_node = node.parent
           lexer = get_lexer(parent_node)
+          content = unescape_html(node.content)
 
-          highlighted = Pygments.highlight(
-            node.content, {:lexer => lexer })
+          highlighted = Pygments.highlight(content, {:lexer => lexer })
           parent_node.replace(highlighted)
           parent_node.remove()
         end
@@ -61,11 +60,9 @@ module Rack
         lexer
       end
 
-      def default_opts
-        {
-          :element => 'pre>code',
-          :lexer_attr => 'data-lang'
-        }
+      def unescape_html(html)
+        html.to_s.gsub(/&#x000A;/i, "\n").gsub("&lt;", '<').gsub(
+          "&gt;", '>').gsub("&amp;", '&')
       end
   end
 end
