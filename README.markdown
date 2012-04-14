@@ -6,9 +6,18 @@ install Pygments directly.
 
 In other words, it's ideal for use on Heroku.
 
-## Usage
+## Installation
 
-First, of course, install the gem.
+Gem install, as usual:
+
+    gem install rack-pygmoku
+
+Then add Pygmoku to your middleware stack:
+
+    # Within your Rackup file or similar
+    use Rack::Pygmoku
+
+## Usage
 
 Currently, `rack-pygmoku` only supports Markdown-style code blocks, like
 so:
@@ -23,7 +32,7 @@ so:
 
 _Note:_ Put the short name of the
 [Pygments lexer](http://pygments.org/docs/lexers/) that you want to use in the
-`data-lang` or `data-lexer` attribute on the `pre` block.
+`data-lang` attribute on the `pre` block.
 
 ## Status
 
@@ -33,7 +42,7 @@ useful.
 
 ## Copyright
 
-Copyright (c) 2011 Kevin Rohrbaugh.
+Copyright 2012 Kevin Rohrbaugh.
 
 See LICENSE.txt for further details.
 
