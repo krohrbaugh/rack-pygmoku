@@ -5,8 +5,9 @@ module Rack
   class Pygmoku
     include Rack::Utils
 
-    def initialize(app)
-      @app = app
+    def initialize(app, opts = {})
+      @app  = app
+      @opts = default_opts.merge(opts)
     end
 
     def call(env)
@@ -59,6 +60,13 @@ module Rack
       def unescape_html(html)
         html.to_s.gsub(/&#x000A;/i, "\n").gsub("&lt;", '<').gsub(
           "&gt;", '>').gsub("&amp;", '&')
+      end
+
+      def default_opts
+        {
+          :element    => 'pre>code',
+          :lexer_attr => 'data-lang'
+        }
       end
   end
 end
